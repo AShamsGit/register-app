@@ -22,7 +22,7 @@ pipeline {
 
         stage("Checkout from SCM"){
                 steps {
-                    git branch: 'main', credentialsId: 'github', url: 'https://github.com/Ashfaque-9x/register-app'
+                    git branch: 'main', credentialsId: 'github', url: 'https://github.com/AShamsGit/register-app.git'
                 }
         }
 
@@ -38,7 +38,10 @@ pipeline {
                  sh "mvn test"
            }
        }
-
+    }
+}
+//COMMENTED OUT FOR NOW
+/*
        stage("SonarQube Analysis"){
            steps {
 	           script {
@@ -68,6 +71,7 @@ pipeline {
                     docker.withRegistry('',DOCKER_PASS) {
                         docker_image.push("${IMAGE_TAG}")
                         docker_image.push('latest')
+			
                     }
                 }
             }
@@ -113,3 +117,4 @@ pipeline {
       }      
    }
 }
+*/
